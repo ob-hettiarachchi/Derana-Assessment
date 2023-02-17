@@ -1,31 +1,52 @@
-//
-const express = require("express");
+const express = require('express')
+const app = express()
 const mongoose = require("mongoose");
-//import mongoose from "mongoose";
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const app = express();
-require("dotenv").config();
 
-//
-const PORT = process.env.PORT || 5000;
+// port
+const PORT = process.env.PORT || 4000;
 
-//
-app.use(cors());
-app.use(bodyParser.json);
+// routes
+const admin = require("./routes/admin");
+const auth = require("./routes/auth");
 
-//
-const URL = process.env.MONGODB_URL;
+// config
+const Keys = require("./config/Keys");
 
-mongoose.set("strictQuery", false);
-mongoose.connect(URL,{
-    // useCreateIndex: true,
-    useNewUrlParser: true,
-    // useFindAndModify: false,
-    useUnifiedTopology: true
-}).then(() => console.log("MongoDB Connection Success")).catch(err => console.log(err))
+//CORS
+const cors=require("cors");
+const corsOptions ={
+    origin: Keys.CORS_URL,
+    credentials:true,
+    //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+}
+app.use(cors(corsOptions))
 
+// BodyParser middleware
+const bodyParser = require("express");
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
+// Connect to MongoDB
+mongoose.set('strictQuery', true);
+mongoose.connect(
+    Keys.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+)
+    .then(() => console.log("MongoDB successfully connected"))
+    .catch(err => console.log(err));
+
+app.get('/', (req, res) => {
+    res.send('Test')
+})
+
+// Rotes
+app.use("/admin", admin);
+app.use("/auth", auth);
+
+// App Listen
 app.listen(PORT, () => {
-    console.log(`Server is up & running on port number: ${PORT}`)
+    console.log(`app listening on port ${PORT}`)
 })
