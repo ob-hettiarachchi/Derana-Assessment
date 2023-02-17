@@ -4,7 +4,7 @@ import React from "react";
 //import style
 import "./footer.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/react-fontawesome';
+//import '@fortawesome/react-fontawesome';
 
 function Footer() {
     return (
@@ -59,17 +59,14 @@ function Footer() {
                                 <li><a class="facebook" href="link"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="twitter" href="link"><i class="fa fa-twitter"></i></a></li>
                                 <li><a class="dribbble" href="link"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a class="linkedin" href="link"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="linkedin" href="link"><i class="fa-brands fa-facebook-f"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </footer>
-
-
         </div>
-
-)
+    )
 }
 
 export default Footer;
