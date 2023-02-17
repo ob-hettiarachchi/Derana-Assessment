@@ -5,9 +5,9 @@ import {Button, CircularProgress, FormGroup, LinearProgress} from "@mui/material
 import TextField from "@mui/material/TextField";
 import AuthActions from "../actions/AuthActions";
 import {Redirect} from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 import userData from "../utils/userData";
+
 const user = userData();
 
 export default function Login() {
@@ -35,16 +35,7 @@ export default function Login() {
         e.preventDefault();
         AuthActions.LoginUser(email, password).then(res => {
             localStorage.setItem("jwt", JSON.stringify(res.data));
-            let jsonPayload = jwt_decode(res.data);
-            if (jsonPayload.role === "user") {
-                if (jsonPayload.status === true) {
-                    document.location.href = '/notes/1';
-                } else if (jsonPayload.status === false) {
-                    document.location.href = '/reset';
-                }
-            } else if (jsonPayload.role === "admin") {
-                document.location.href = '/users';
-            }
+            document.location.href = '/news';
             setLoading(false);
         }).catch(e => {
             setErrors(e.response.data);
@@ -54,15 +45,11 @@ export default function Login() {
 
     return (
         <div>
-            {user.role === "user" || user.role === "admin" ?
-                user.role === "user" ?
-                    user.status === true ?
-                        <Redirect to="/notes/1"/> :
-                        <Redirect to="/reset"/> :
-                    <Redirect to="/users"/>
-                : ""}
+            {user.role === "admin" ?
+                <Redirect to="/news"/> : ""
+            }
 
-            {loading === true ? <LinearProgress /> : ""}
+            {loading === true ? <LinearProgress/> : ""}
             <Helmet>
                 <title>Login</title>
             </Helmet>
