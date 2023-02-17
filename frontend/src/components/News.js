@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Helmet from "react-helmet";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Pagination from 'react-responsive-pagination';
 
 import userData from "../utils/userData";
@@ -76,22 +76,17 @@ export default function News() {
 
     return (
         <div>
-            {user.role === "user" || user.role === "admin" ?
-                user.role === "user" ?
-                    user.status === true ?
-                        "" :
-                        <Redirect to="/reset"/> :
-                    <Redirect to="/news/1"/>
-                : <Redirect to="/"/>}
-            {loading === true ? <LinearProgress /> : ""}
+            {loading === true ? <LinearProgress/> : ""}
             <Helmet>
                 <title>News</title>
             </Helmet>
             <div className={"form-container con-mid"} style={{marginTop: "56px"}}>
                 <h3>News</h3>
-                <Link to={'/add-news'}>
-                    + Add news
-                </Link>
+                {user.role === "admin" ?
+                    <Link to={'/add-news'}>
+                        + Add news
+                    </Link> : ""
+                }
                 <br/>
                 <div className={"container con-mid"}>
                     <div className={"row"}>
@@ -99,11 +94,18 @@ export default function News() {
                             <div id={note._id} key={note._id} className={"col-xs note-card"}>
                                 <h5>{note.title}</h5>
                                 <p>{note.news}</p>
-                                <Button onClick={() => document.location.href = '/news/update/' + note._id}>UPDATE</Button>
-                                <span> | </span>
-                                <Button onClick={() => deleteNews(note._id)}>
-                                    Delete
-                                </Button>
+
+                                {user.role === "admin" ?
+                                    <>
+                                        <Button
+                                            onClick={() => document.location.href = '/news/update/' + note._id}>UPDATE</Button>
+                                        <span> | </span>
+                                        <Button onClick={() => deleteNews(note._id)}>
+                                            Delete
+                                        </Button>
+                                    </> : ""
+                                }
+
                             </div>
                         )}
                     </div>

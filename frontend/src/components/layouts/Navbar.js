@@ -8,7 +8,7 @@ export default function Navbar() {
 
     const logout = () => {
         localStorage.removeItem("jwt");
-        document.location.href = '/';
+        document.location.href = '/news/1';
     }
 
     return (
@@ -25,7 +25,7 @@ export default function Navbar() {
                         <rect x="1" y="9" width="14" height="1.5" rx="1" fill="rgba(255, 255, 255, .9)"></rect>
                     </svg>
                 </button>
-                <a href={"/"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
+                <a href={"/news/1"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
                                    id={"logo_link"}/></a>
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">

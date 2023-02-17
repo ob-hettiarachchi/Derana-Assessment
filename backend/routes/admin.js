@@ -28,10 +28,10 @@ router.route('/news').post(auth.isAuthenticated, (req, res, next) => {
         });
 
         addNews.save().then(response => {
-                return res
-                    .status(200)
-                    .json(response);
-            }).catch(err => {
+            return res
+                .status(200)
+                .json(response);
+        }).catch(err => {
             console.log(err);
             return res
                 .status(404)
@@ -44,51 +44,43 @@ router.route('/news').post(auth.isAuthenticated, (req, res, next) => {
 
 });
 
-router.route('/news-count').get(auth.isAuthenticated, (req, res, next) => {
-    if (req.role === "admin") {
+router.route('/news-count').get((req, res, next) => {
 
-        News.find({email: req.email}).count().then((data) => {
-            if (data) {
-                res.status(200).json(data);
-            } else {
-                res.status(200).json(0);
-            }
-        }).catch((err) => {
-            next(err);
-            return res
-                .status(404)
-                .json({internalError: "Unexpected error occurred! Please try again."});
-        })
+    News.find({email: req.email}).count().then((data) => {
+        if (data) {
+            res.status(200).json(data);
+        } else {
+            res.status(200).json(0);
+        }
+    }).catch((err) => {
+        next(err);
+        return res
+            .status(404)
+            .json({internalError: "Unexpected error occurred! Please try again."});
+    })
 
-    } else {
-        res.status(403).json({server: "Unauthorized"})
-    }
 
 })
 
-router.route('/news/:page').get(auth.isAuthenticated, (req, res, next) => {
-    if (req.role === "admin") {
+router.route('/news/:page').get((req, res, next) => {
 
-        let page = req.params.page;
-        let skip = (page - 1) * 6;
+    let page = req.params.page;
+    let skip = (page - 1) * 6;
 
-        // find news and backend pagination
-        News.find({email: req.email}).sort({"_id": -1}).skip(skip).limit(6).then((data) => {
-            if (data) {
-                res.status(200).json(data);
-            } else {
-                res.status(200).json(null);
-            }
-        }).catch((err) => {
-            next(err);
-            return res
-                .status(404)
-                .json({internalError: "Unexpected error occurred! Please try again."});
-        })
+    // find news and backend pagination
+    News.find({}).sort({"_id": -1}).skip(skip).limit(6).then((data) => {
+        if (data) {
+            res.status(200).json(data);
+        } else {
+            res.status(200).json(null);
+        }
+    }).catch((err) => {
+        next(err);
+        return res
+            .status(404)
+            .json({internalError: "Unexpected error occurred! Please try again."});
+    })
 
-    } else {
-        res.status(403).json({server: "Unauthorized"})
-    }
 
 });
 

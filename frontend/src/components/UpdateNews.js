@@ -68,7 +68,7 @@ export default function UpdateNews() {
 
     return (
         <div>
-            {user.role === "admin" ? "" : <Redirect to="/"/>}
+            {user.role === "admin" ? "" : <Redirect to="/news/1"/>}
             {loading === true ? <LinearProgress/> : ""}
             <Helmet>
                 <title>Update news</title>
