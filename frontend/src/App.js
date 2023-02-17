@@ -9,6 +9,8 @@ import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import News from "./components/News";
+import AddNews from "./components/AddNews";
+import UpdateNews from "./components/UpdateNews";
 
 class App extends Component {
     render() {
@@ -19,14 +21,11 @@ class App extends Component {
                 <Navbar/>
                 <Switch>
                     <Route exact path={"/"} component={Home}/>
-                    <Route exact path={"/news"} component={News}/>
                     <Route exact path={"/login"} component={Login}/>
-
-                    {/* User */}
-                    {/*<Route exact path={"/create-note"} component={CreateNews}/>*/}
-                    {/*<Route exact path={"/notes/:page"} component={News}/>*/}
-                    {/*<Route exact path={"/note/update/:id"} component={UpdateNews}/>*/}
-                    {/*<Route exact path={"/update-note"} component={UpdateNews}/>*/}
+                    <Route exact path={"/add-news"} component={AddNews}/>
+                    <Route exact path={"/news/:page"} component={News}/>
+                    <Route exact path={"/news/story/:id"} component={UpdateNews}/>
+                    <Route exact path={"/news/update/:id"} component={UpdateNews}/>
 
                     <Route exact component={NotFound}/>
                 </Switch>

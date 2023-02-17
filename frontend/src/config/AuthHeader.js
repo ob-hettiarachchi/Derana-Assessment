@@ -1,12 +1,9 @@
-import axios from "axios";
-import Keys from "../config/Keys";
+export default function authHeader() {
+    const jwt = JSON.parse(localStorage.getItem('jwt'));
 
-const API_URL = Keys.API_URL + "auth/";
-
-class AuthActions {
-    LoginUser(email, password) {
-        return axios.post(API_URL + "login", {email: email, password: password}, {});
+    if (jwt) {
+        return { 'x-access-token': jwt };
+    } else {
+        return {};
     }
 }
-
-export default new AuthActions();

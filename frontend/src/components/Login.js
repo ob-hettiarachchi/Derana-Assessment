@@ -35,7 +35,7 @@ export default function Login() {
         e.preventDefault();
         AuthActions.LoginUser(email, password).then(res => {
             localStorage.setItem("jwt", JSON.stringify(res.data));
-            document.location.href = '/news';
+            document.location.href = '/news/1';
             setLoading(false);
         }).catch(e => {
             setErrors(e.response.data);
@@ -46,7 +46,7 @@ export default function Login() {
     return (
         <div>
             {user.role === "admin" ?
-                <Redirect to="/news"/> : ""
+                <Redirect to="/news/1"/> : ""
             }
 
             {loading === true ? <LinearProgress/> : ""}

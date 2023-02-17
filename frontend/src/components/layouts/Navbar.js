@@ -33,19 +33,19 @@ export default function Navbar() {
                         {user.role ?
                             <>
                                 <li className="nav-item con-mid">
-                                    <a href={"/news"} className="nav-link">
+                                    <a href={"/news/1"} className="nav-link">
                                         News
                                     </a>
                                 </li>
                                 <li className="nav-item con-mid">
-                                    <a href={"/news"} className="nav-link">
+                                    <a href={"/add-news"} className="nav-link">
                                         + Add News
                                     </a>
                                 </li>
                             </>
                             :
                             <li className="nav-item con-mid">
-                                <a href={"/news"} className="nav-link">
+                                <a href={"/news/1"} className="nav-link">
                                     News
                                 </a>
                             </li>
