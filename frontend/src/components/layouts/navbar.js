@@ -1,7 +1,7 @@
 //import libraries
 import React from "react";
 
-function Navbar() {
+export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark navbar-bg">
             <div className={"container"}>
@@ -21,13 +21,14 @@ function Navbar() {
                     //     Derana
                     // </a>
 
-                    <a href={"/home"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo" id={"logo_link"}/></a>
+                    <a href={"/home"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
+                                           id={"logo_link"}/></a>
                 }
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item con-mid">
-                            <a href={"/notes/1"} className="nav-link">
+                            <a href={"/news"} className="nav-link">
                                 News
                             </a>
                         </li>
@@ -37,7 +38,9 @@ function Navbar() {
                         {
                             <li className="nav-item nav-testnet">
                                 <span className="nav-link logout-link">
-                                    Login
+                                    <a href={"/login"} className="nav-link">
+                                        Login
+                                    </a>
                                 </span>
                             </li>
                         }
@@ -48,5 +51,3 @@ function Navbar() {
         </nav>
     )
 }
-
-export default Navbar;

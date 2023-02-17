@@ -4,7 +4,7 @@ import React from "react";
 //import styles
 import "./navigation.css"
 
-function Navigation() {
+export default function Navigation() {
     return (
 
         <div id={"nav"}>
@@ -21,5 +21,3 @@ function Navigation() {
 
     )
 }
-
-export default Navigation;
