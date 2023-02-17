@@ -4,7 +4,7 @@ import {Route, Switch} from "react-router-dom";
 
 //import components
 import Footer from "./components/footer";
-import Navbar from "./components/layouts/navbar";
+import Navbar from "./components/layouts/Navbar";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import Home from "./components/Home";
