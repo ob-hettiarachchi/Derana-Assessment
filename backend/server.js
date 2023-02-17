@@ -17,10 +17,11 @@ app.use(bodyParser.json);
 //
 const URL = process.env.MONGODB_URL;
 
+mongoose.set("strictQuery", false);
 mongoose.connect(URL,{
-    useCreateIndex: true,
+    // useCreateIndex: true,
     useNewUrlParser: true,
-    useFindAndModify: false,
+    // useFindAndModify: false,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB Connection Success")).catch(err => console.log(err))
 
