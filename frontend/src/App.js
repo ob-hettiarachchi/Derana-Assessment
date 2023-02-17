@@ -5,13 +5,15 @@ import {BrowserRouter as Router} from "react-router-dom";
 //import components
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
+import Navbar from "./components/layouts/navbar";
 
 function App() {
   return (
       <Router>
           <div>
 
-              <Navigation/>
+              {/*<Navigation/>*/}
+              <Navbar/>
               <Footer/>
 
           </div>

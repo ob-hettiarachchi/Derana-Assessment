@@ -3,7 +3,7 @@ import React from "react";
 
 //import style
 import "./footer.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 //import '@fortawesome/react-fontawesome';
 
 function Footer() {
