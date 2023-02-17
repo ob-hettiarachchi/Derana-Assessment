@@ -21,7 +21,7 @@ export default function Navbar() {
                     //     Derana
                     // </a>
 
-                    <a href={"/home"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
+                    <a href={"/"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
                                            id={"logo_link"}/></a>
                 }
 

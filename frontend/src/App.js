@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 import Navbar from "./components/layouts/navbar";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
+import Home from "./components/Home";
+import News from "./components/News";
 
 class App extends Component {
     render() {
@@ -16,6 +18,8 @@ class App extends Component {
                 {/*<Navigation/>*/}
                 <Navbar/>
                 <Switch>
+                    <Route exact path={"/"} component={Home}/>
+                    <Route exact path={"/news"} component={News}/>
                     <Route exact path={"/login"} component={Login}/>
 
                     {/* User */}
