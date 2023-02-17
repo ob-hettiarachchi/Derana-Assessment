@@ -58,7 +58,8 @@
 }
 
 .row {
-    width: 1008px;
+    /*width: 1008px;*/
+    width: 100%;
 }
 
 .note-card {
