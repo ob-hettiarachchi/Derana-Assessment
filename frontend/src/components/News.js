@@ -92,7 +92,11 @@ export default function News() {
                     <div className={"row"}>
                         {news.map(note =>
                             <div id={note._id} key={note._id} className={"col-xs note-card"}>
-                                <h5>{note.title}</h5>
+
+                                <a href={`/news/story/${note._id}`}>
+                                    <h5>{note.title}</h5>
+                                </a>
+
                                 <p>{note.news}</p>
 
                                 {user.role === "admin" ?

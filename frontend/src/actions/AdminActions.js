@@ -15,11 +15,11 @@ class UserActions {
     }
 
     FetchNews(page) {
-        return axios.get(API_URL + 'news/' + page, {headers: authHeader()})
+        return axios.get(API_URL + 'news/' + page, {})
     }
 
     FetchNewsCount() {
-        return axios.get(API_URL + 'news-count', {headers: authHeader()})
+        return axios.get(API_URL + 'news-count', {})
     }
 
     DeleteNews(id) {
@@ -27,7 +27,7 @@ class UserActions {
     }
 
     GetNewsById(id) {
-        return axios.get(API_URL + 'news-id/' + id, {headers: authHeader()})
+        return axios.get(API_URL + 'news-id/' + id, {})
     }
 
     UpdateNews(id, title, news) {

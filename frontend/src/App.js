@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import News from "./components/News";
 import AddNews from "./components/AddNews";
 import UpdateNews from "./components/UpdateNews";
+import NewsStory from "./components/NewsStory";
 
 class App extends Component {
     render() {
@@ -24,7 +25,7 @@ class App extends Component {
                     <Route exact path={"/login"} component={Login}/>
                     <Route exact path={"/add-news"} component={AddNews}/>
                     <Route exact path={"/news/:page"} component={News}/>
-                    <Route exact path={"/news/story/:id"} component={UpdateNews}/>
+                    <Route exact path={"/news/story/:id"} component={NewsStory}/>
                     <Route exact path={"/news/update/:id"} component={UpdateNews}/>
 
                     <Route exact component={NotFound}/>

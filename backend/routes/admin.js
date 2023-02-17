@@ -106,26 +106,21 @@ router.route('/news/:id').delete(auth.isAuthenticated, (req, res, next) => {
 
 });
 
-router.route('/news-id/:id').get(auth.isAuthenticated, (req, res, next) => {
-    if (req.role === "admin") {
+router.route('/news-id/:id').get((req, res, next) => {
 
-        let id = req.params.id;
-        News.findOne({_id: id}).then((data) => {
-            if (data) {
-                res.status(200).json(data);
-            } else {
-                res.status(200).json(null);
-            }
-        }).catch((err) => {
-            next(err);
-            return res
-                .status(404)
-                .json({internalError: "Unexpected error occurred! Please try again."});
-        })
-
-    } else {
-        res.status(403).json({server: "Unauthorized"})
-    }
+    let id = req.params.id;
+    News.findOne({_id: id}).then((data) => {
+        if (data) {
+            res.status(200).json(data);
+        } else {
+            res.status(200).json(null);
+        }
+    }).catch((err) => {
+        next(err);
+        return res
+            .status(404)
+            .json({internalError: "Unexpected error occurred! Please try again."});
+    })
 
 });
 
