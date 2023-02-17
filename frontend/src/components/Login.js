@@ -1,23 +1,56 @@
-//import libraries
 import React, {useState} from "react";
-import {Redirect} from "react-router-dom";
-import {Box, Button, CircularProgress, FormGroup, LinearProgress, TextField} from "@mui/material";
 import Helmet from "react-helmet";
+import Box from "@mui/material/Box";
+import {Button, CircularProgress, FormGroup, LinearProgress} from "@mui/material";
+import TextField from "@mui/material/TextField";
+import AuthActions from "../actions/AuthActions";
+import {Redirect} from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
-const user = {};
-const loading = {};
+import userData from "../utils/userData";
+const user = userData();
 
 export default function Login() {
 
-    const onSubmit = () => {
-
-    }
-
-    const onChange = () => {
-
-    }
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
+
+    if (errors.server) {
+        console.log(errors.server);
+    }
+
+    const onChange = e => {
+        if (e.target.id === "email") {
+            setEmail(e.target.value)
+        }
+        if (e.target.id === "password") {
+            setPassword(e.target.value)
+        }
+    };
+
+    const onSubmit = e => {
+        setLoading(true);
+        e.preventDefault();
+        AuthActions.LoginUser(email, password).then(res => {
+            localStorage.setItem("jwt", JSON.stringify(res.data));
+            let jsonPayload = jwt_decode(res.data);
+            if (jsonPayload.role === "user") {
+                if (jsonPayload.status === true) {
+                    document.location.href = '/notes/1';
+                } else if (jsonPayload.status === false) {
+                    document.location.href = '/reset';
+                }
+            } else if (jsonPayload.role === "admin") {
+                document.location.href = '/users';
+            }
+            setLoading(false);
+        }).catch(e => {
+            setErrors(e.response.data);
+            setLoading(false);
+        })
+    };
 
     return (
         <div>
@@ -87,5 +120,5 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
