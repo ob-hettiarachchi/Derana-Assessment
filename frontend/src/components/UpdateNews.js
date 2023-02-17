@@ -92,7 +92,7 @@ export default function UpdateNews() {
                                 id="title"
                                 label="Title"
                                 variant="filled"
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 value={title}
                                 error={!!errors.title}
                                 helperText={errors.title}
@@ -104,7 +104,7 @@ export default function UpdateNews() {
                                 variant="filled"
                                 multiline
                                 rows={4}
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 value={news}
                                 error={!!errors.news}
                                 helperText={errors.news}
@@ -112,7 +112,7 @@ export default function UpdateNews() {
                         </FormGroup>
                         <FormGroup>
                             <Button
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 type="submit"
                                 variant="contained">
                                 {loading === true ?

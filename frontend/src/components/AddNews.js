@@ -71,7 +71,7 @@ export default function AddNews() {
                                 id="title"
                                 label="Title"
                                 variant="filled"
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 error={!!errors.title}
                                 helperText={errors.title}
                             />
@@ -82,14 +82,14 @@ export default function AddNews() {
                                 variant="filled"
                                 multiline
                                 rows={4}
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 error={!!errors.news}
                                 helperText={errors.news}
                             />
                         </FormGroup>
                         <FormGroup>
                             <Button
-                                type="submit" style={{margin: "10px 0", width: "410px"}}
+                                type="submit" className={"text-box"}
                                 variant="contained">
                                 {loading === true ?
                                     <CircularProgress size="1rem" color={"inherit"} style={{

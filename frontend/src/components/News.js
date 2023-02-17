@@ -80,7 +80,7 @@ export default function News() {
             <Helmet>
                 <title>News</title>
             </Helmet>
-            <div className={"form-container con-mid"} style={{marginTop: "56px"}}>
+            <div className={"form-container con-mid"}>
                 <h3>News</h3>
                 {user.role === "admin" ?
                     <Link to={'/add-news'}>

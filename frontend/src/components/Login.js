@@ -72,7 +72,7 @@ export default function Login() {
                                 id="email"
                                 label="Email"
                                 variant="filled"
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 error={!!errors.email}
                                 helperText={errors.email}
                             />
@@ -83,14 +83,14 @@ export default function Login() {
                                 variant="filled"
                                 type={"password"}
                                 error={!!errors.password}
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 helperText={errors.password}
                             />
                         </FormGroup>
                         <FormGroup>
                             <Button
                                 type="submit"
-                                style={{margin: "10px 0", width: "410px"}}
+                                className={"text-box"}
                                 variant="contained">{loading === true ?
                                 <CircularProgress size="1rem" color={"inherit"} style={{
                                     marginBottom: "-2px",

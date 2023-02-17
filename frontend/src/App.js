@@ -18,7 +18,6 @@ class App extends Component {
         return (
             <div>
 
-                {/*<Navigation/>*/}
                 <Navbar/>
                 <Switch>
                     <Route exact path={"/"} component={Home}/>

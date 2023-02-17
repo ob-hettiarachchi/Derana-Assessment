@@ -34,9 +34,11 @@
 }
 
 .form-container {
+    margin-top: 56px;
     width: 100%;
     min-height: calc(100vh - 57px);
 }
+
 .form-card {
     padding: 40px;
     width: 500px;
@@ -45,8 +47,8 @@
     margin: 60px 0;
 }
 
-.css-xn6ruc>:not(style) {
-    width: 100%!important;
+.css-xn6ruc > :not(style) {
+    width: 100% !important;
 }
 
 .form-card h5 {
@@ -68,4 +70,32 @@
     min-width: calc((100% - 120px) / 3);
     padding: 10px;
     border-radius: 5px;
+}
+
+.text-box {
+    margin: 10px 0 !important;
+    width: 410px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .text-box {
+        width: 100%;
+    }
+
+    .form-card {
+        max-width: 90%;
+    }
+
+    .form-container {
+        margin-top: 100px;
+    }
+
+    .mob-login-btn {
+        text-align: center;
+    }
+
+    .note-card {
+        min-width: calc((100% - 30px) / 1);
+    }
 }

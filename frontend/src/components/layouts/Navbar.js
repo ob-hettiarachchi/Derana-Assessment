@@ -55,12 +55,12 @@ export default function Navbar() {
                     <div className="navbar-nav ml-auto">
                         {user.role ?
                             <li className="nav-item nav-testnet">
-                                <span onClick={logout} className="nav-link logout-link">
+                                <span onClick={logout} className="nav-link logout-link mob-login-btn">
                                     Logout
                                 </span>
                             </li> :
                             <li className="nav-item nav-testnet">
-                                <Link to={"/login"} className="nav-link">
+                                <Link to={"/login"} className="nav-link mob-login-btn">
                                     Login
                                 </Link>
                             </li>
