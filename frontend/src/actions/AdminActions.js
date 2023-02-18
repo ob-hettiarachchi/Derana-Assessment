@@ -7,10 +7,11 @@ const API_URL = Keys.API_URL + "admin/";
 
 class UserActions {
 
-    CreateNews(title, news) {
+    CreateNews(title, news, image) {
         return axios.post(API_URL + 'news', {
             title: title,
-            news: news
+            news: news,
+            image: image
         }, {headers: authHeader()})
     }
 
@@ -30,10 +31,11 @@ class UserActions {
         return axios.get(API_URL + 'news-id/' + id, {})
     }
 
-    UpdateNews(id, title, news) {
+    UpdateNews(id, title, news, image) {
         return axios.put(API_URL + 'news/' + id, {
             title: title,
-            news: news
+            news: news,
+            image: image
         }, {headers: authHeader()})
     }
 

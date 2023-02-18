@@ -22,6 +22,9 @@ const corsOptions ={
 }
 app.use(cors(corsOptions))
 
+// static serving
+app.use('/uploads', express.static('uploads'))
+
 // BodyParser middleware
 const bodyParser = require("express");
 app.use(bodyParser.urlencoded({extended: false}));

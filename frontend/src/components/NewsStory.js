@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Helmet from "react-helmet";
 import Box from "@mui/material/Box";
-import {Button, CircularProgress, FormGroup, LinearProgress} from "@mui/material";
+import {LinearProgress} from "@mui/material";
 
 import AdminActions from "../actions/AdminActions";
+import Keys from "../config/Keys";
 
+const API_URL = Keys.API_URL;
 
 const pathname = window.location.pathname;
 const id = pathname.split('/').pop();
@@ -13,6 +15,7 @@ export default function NewsStory() {
 
     const [title, setTitle] = useState("");
     const [news, setNews] = useState("");
+    const [image, setImage] = useState("");
 
     const [loading, setLoading] = useState(false);
 
@@ -23,6 +26,7 @@ export default function NewsStory() {
             console.log(res.data);
             setTitle(res.data.title);
             setNews(res.data.news);
+            setImage(res.data.image);
             setLoading(false);
         }).catch(e => {
             console.log(e);
@@ -45,6 +49,9 @@ export default function NewsStory() {
                     <Box>
                         <h3>{title}</h3>
                         <p>{news}</p>
+                        {loading !== true && image ?
+                            <img alt={"News Image"} src={`${API_URL}uploads/${image}`} style={{maxWidth: "100%"}}/> : ""
+                        }
                     </Box>
                 </div>
             </div>
