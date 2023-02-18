@@ -25,13 +25,18 @@ export default function Navbar() {
                         <rect x="1" y="9" width="14" height="1.5" rx="1" fill="rgba(255, 255, 255, .9)"></rect>
                     </svg>
                 </button>
-                <a href={"/news/1"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
+                <a href={"/"}><img src="../../derana_logo.png" style={{width: "50px"}} alt="Derana Logo"
                                    id={"logo_link"}/></a>
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         {user.role ?
                             <>
+                                <li className="nav-item con-mid">
+                                    <a href={"/"} className="nav-link">
+                                        Home
+                                    </a>
+                                </li>
                                 <li className="nav-item con-mid">
                                     <a href={"/news/1"} className="nav-link">
                                         News
@@ -44,11 +49,24 @@ export default function Navbar() {
                                 </li>
                             </>
                             :
-                            <li className="nav-item con-mid">
-                                <a href={"/news/1"} className="nav-link">
-                                    News
-                                </a>
-                            </li>
+                            <>
+                                <li className="nav-item con-mid">
+                                    <a href={"/"} className="nav-link">
+                                        Home
+                                    </a>
+                                </li>
+                                <li className="nav-item con-mid">
+                                    <a href={"/news/1"} className="nav-link">
+                                        News
+                                    </a>
+                                </li>
+                                <li className="nav-item con-mid">
+                                    <a href={"/about"} className="nav-link">
+                                        About us
+                                    </a>
+                                </li>
+                            </>
+
                         }
                     </ul>
 
