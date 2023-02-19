@@ -45,7 +45,7 @@ export default function NewsStory() {
                 <title>News | Story</title>
             </Helmet>
             <div className={"form-container con-mid"} style={{marginTop: "56px"}}>
-                <div className={"form-card con-mid"}>
+                <div className={"form-card con-mid"} style={{width:"60%"}}>
                     <Box>
                         {loading !== true && image ?
                             <img alt={"News Image"} src={`${API_URL}uploads/${image}`} style={{maxWidth: "100%"}}/> : ""
