@@ -6,6 +6,9 @@ import Pagination from 'react-responsive-pagination';
 import userData from "../utils/userData";
 import AdminActions from "../actions/AdminActions";
 import {Button, LinearProgress} from "@mui/material";
+import Keys from "../config/Keys";
+
+const API_URL = Keys.API_URL;
 
 const user = userData();
 const pathname = window.location.pathname;
@@ -14,6 +17,7 @@ const page = parseInt(pathname.split('/').pop());
 export default function News() {
 
     const [news, setNews] = useState([]);
+    const [image, setImage] = useState("");
 
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(page);
@@ -89,9 +93,16 @@ export default function News() {
                 }
                 <br/>
                 <div className={"container con-mid"}>
+
+                    //https://getbootstrap.com/docs/4.0/components/card/#card-groups
+
                     <div className={"row"}>
                         {news.map(note =>
                             <div id={note._id} key={note._id} className={"col-xs note-card"}>
+
+                                {loading !== true && image ?
+                                    <img alt={"News Image"} src={`${API_URL}uploads/${image}`} style={{maxWidth: "100%"}}/> : ""
+                                }
 
                                 <a href={`/news/story/${note._id}`}>
                                     <h5>{note.title}</h5>
