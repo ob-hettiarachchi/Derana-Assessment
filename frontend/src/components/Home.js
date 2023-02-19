@@ -14,22 +14,22 @@ export default function Home() {
                         <div className={"carousel-item active"}>
                             <img className={"d-block w-100"} src="https://cdn.pixabay.com/photo/2016/09/01/19/53/pocket-watch-1637396_960_720.jpg" alt="First slide"/>
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>text</h5>
-                                <p>text</p>
+                                <h5>text1</h5>
+                                <p>text text text text text text text text text.</p>
                             </div>
                         </div>
                         <div className={"carousel-item"}>
                             <img className={"d-block w-100"} src="https://cdn.pixabay.com/photo/2017/04/11/15/55/animals-2222007_960_720.jpg" alt="Second slide"/>
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>text</h5>
-                                <p>text</p>
+                                <h5>text2</h5>
+                                <p>text text text text text text text text text.</p>
                             </div>
                         </div>
                         <div className={"carousel-item"}>
                             <img className={"d-block w-100"} src="https://cdn.pixabay.com/photo/2015/12/06/09/15/maple-1079235_960_720.jpg" alt="Third slide"/>
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>text</h5>
-                                <p>text</p>
+                                <h5>text3</h5>
+                                <p>text text text text text text text text text.</p>
                             </div>
                         </div>
                     </div>
