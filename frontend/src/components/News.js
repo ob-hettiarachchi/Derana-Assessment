@@ -99,7 +99,7 @@ export default function News() {
 
                         {loading === true ?
                             <div className={"con-mid"} style={{width: "100%"}}>
-                                <span><CircularProgress/> Loading</span>
+                                <span><CircularProgress/><br/>Loading</span>
                             </div>
                             : ""}
 
