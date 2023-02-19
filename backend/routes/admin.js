@@ -1,6 +1,7 @@
 const express = require("express");
 const multer = require('multer');
 const router = express.Router();
+const fs = require('fs');
 
 // models
 const News = require("../models/News");
@@ -122,16 +123,38 @@ router.route('/news/:id').delete(auth.isAuthenticated, (req, res, next) => {
 
         let id = req.params.id;
 
-        News.deleteOne({_id: id}).then(response => {
-            return res
-                .status(200)
-                .json(response);
-        }).catch(err => {
-            next(err);
+        News.findOne({_id: id}).then((data) => {
+            let filePath = `./uploads/${data.image}`;
+
+            fs.unlink(filePath, (err) => {
+                if (err) {
+                    console.error(err);
+                    console.log('Error deleting file');
+                } else {
+                    console.log('File deleted successfully');
+                }
+            });
+
+            News.deleteOne({_id: id}).then(response => {
+
+                return res
+                    .status(200)
+                    .json(response);
+
+            }).catch(err => {
+                next(err);
+                return res
+                    .status(404)
+                    .json({internalError: "Unexpected error occurred! Please try again."});
+            })
+
+        }).catch((err0) => {
+            next(err0);
             return res
                 .status(404)
                 .json({internalError: "Unexpected error occurred! Please try again."});
         })
+
 
     } else {
         res.status(403).json({server: "Unauthorized"})
