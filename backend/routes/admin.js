@@ -192,15 +192,38 @@ router.route('/news/:id').put(auth.isAuthenticated, (req, res, next) => {
             return res.status(400).json(errors);
         }
 
-        News.updateOne({_id: id}, {
-            title: req.body.title,
-            news: req.body.news,
-            image: req.body.image
-        }).then(response => {
-            res.status(200).json(response);
-        }).catch(err => {
-            next(err);
-            res.status(500).json(err);
+        News.findOne({_id: id}).then((data) => {
+            let filePath = `./uploads/${data.image}`;
+
+            // console.log("here: ------ : " + req.body.image, data.image);
+
+            if (data.image !== req.body.image) {
+                fs.unlink(filePath, (err) => {
+                    if (err) {
+                        console.error(err);
+                        console.log('Error deleting file');
+                    } else {
+                        console.log('File deleted successfully');
+                    }
+                });
+            }
+
+            News.updateOne({_id: id}, {
+                title: req.body.title,
+                news: req.body.news,
+                image: req.body.image
+            }).then(response => {
+                res.status(200).json(response);
+            }).catch(err => {
+                next(err);
+                res.status(500).json(err);
+            })
+
+        }).catch((err0) => {
+            next(err0);
+            return res
+                .status(404)
+                .json({internalError: "Unexpected error occurred! Please try again."});
         })
 
     } else {
