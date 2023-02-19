@@ -136,7 +136,11 @@ export default function AddNews() {
                             <div {...getRootProps()}>
                                 <input {...getInputProps()} />
                                 <h3>News Image</h3>
-                                <p style={{cursor: "pointer"}}>Click to select files</p>
+                                <Button variant="outlined" style={{marginBottom: "10px"}}>Click to select files</Button>
+                                {loading !== true && image ?
+                                    <img alt={"News Image"} src={`${API_URL}uploads/${image}`}
+                                         style={{maxWidth: "100%"}}/> : ""
+                                }
                             </div>
                         </FormGroup>
                         <FormGroup>

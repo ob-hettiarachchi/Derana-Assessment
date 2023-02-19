@@ -160,8 +160,7 @@ export default function UpdateNews() {
                             <div {...getRootProps()}>
                                 <input {...getInputProps()} />
                                 <h3>Update Image</h3>
-                                <p style={{cursor: "pointer"}}>Click to select files</p>
-
+                                <Button variant="outlined" style={{marginBottom: "10px"}}>Click to select files</Button>
                             </div>
                         </FormGroup>
                         <FormGroup>

@@ -34,7 +34,7 @@
 }
 
 .form-container {
-    margin-top: 56px;
+    margin-top: 120px;
     width: 100%;
     min-height: calc(100vh - 57px);
 }
@@ -67,7 +67,8 @@
 .note-card {
     border: 1px solid #dadada;
     margin: 20px;
-    min-width: calc((100% - 120px) / 3);
+    /*min-width: calc((100% - 120px) / 3);*/
+    width: calc((100% - 120px) / 3);
     padding: 10px;
     border-radius: 5px;
 }
@@ -75,6 +76,10 @@
 .text-box {
     margin: 10px 0 !important;
     width: 410px;
+}
+
+.card a:hover {
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -94,7 +99,9 @@
     .mob-login-btn {
         text-align: center;
     }
+}
 
+@media screen and (max-width: 1024px) {
     .note-card {
         min-width: calc((100% - 30px) / 1);
     }
