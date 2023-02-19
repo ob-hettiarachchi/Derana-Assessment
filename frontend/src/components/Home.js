@@ -66,22 +66,22 @@ export default function Home() {
                         <div className="col-sm" style={{backgroundColor: "whitesmoke", margin: "10px"}}>
                             <br/>
                             <br/>
-                            <a href={"https://www.youtube.com/channel/UCCK3OZi788Ok44K97WAhLKQ"}>
+                            <a href={"https://www.youtube.com/channel/UCCK3OZi788Ok44K97WAhLKQ"} target={"_blank"}>
                                 <img src={"../derana_logo.png"} alt={"img"}/>
                             </a>
                             <br/>
-                            <a href={"https://www.youtube.com/channel/UCCK3OZi788Ok44K97WAhLKQ"}> YouTube </a>
+                            <a href={"https://www.youtube.com/channel/UCCK3OZi788Ok44K97WAhLKQ"} target={"_blank"}> YouTube </a>
                             <br/>
                             <br/>
                         </div>
                         <div className="col-sm" style={{backgroundColor: "whitesmoke", margin: "10px"}}>
                             <br/>
                             <br/>
-                            <a href={"https://www.adaderana.lk/"}>
+                            <a href={"https://www.adaderana.lk/"} target={"_blank"}>
                                 <img src={"../derana_logo.png"} alt={"img"}/>
                             </a>
                             <br/>
-                            <a href={"https://www.adaderana.lk/"}> Visit Web Site </a>
+                            <a href={"https://www.adaderana.lk/"} target={"_blank"}> Visit Web Site </a>
                             <br/>
                             <br/>
                         </div>
