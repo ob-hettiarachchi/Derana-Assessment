@@ -84,7 +84,7 @@ export default function News() {
                 <title>News</title>
             </Helmet>
             <div className={"form-container con-mid"}>
-                <h3>News</h3>
+                <h3>Today's News</h3>
                 {user.role === "admin" ?
                     <Link to={'/add-news'}>
                         + Add news
