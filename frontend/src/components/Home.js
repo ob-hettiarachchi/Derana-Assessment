@@ -22,16 +22,28 @@ export default function Home() {
                             <img className="d-block" style={{width: "100vw"}}
                                  src="https://cdn.pixabay.com/photo/2016/09/01/19/53/pocket-watch-1637396_960_720.jpg"
                                  alt="First slide"/>
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Text1</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
                         <div className="carousel-item">
                             <img className="d-block" style={{width: "100vw"}}
                                  src="https://cdn.pixabay.com/photo/2017/04/11/15/55/animals-2222007_960_720.jpg"
                                  alt="Second slide"/>
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Text2</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
                         <div className="carousel-item">
                             <img className="d-block" style={{width: "100vw"}}
                                  src="https://cdn.pixabay.com/photo/2015/12/06/09/15/maple-1079235_960_720.jpg"
                                  alt="Third slide"/>
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Text3</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
                         </div>
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -46,8 +58,6 @@ export default function Home() {
                     </a>
                 </div>
 
-                <br/>
-                <br/>
                 <br/>
                 <br/>
 
@@ -88,6 +98,10 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+
+                <br/>
+                <br/>
+
             </div>
         </div>
     );
