@@ -111,7 +111,7 @@ export default function News() {
                                              alt="Card image cap"/>
                                         <div className="card-body">
                                             <h5 className="card-title">{newsItem.title}</h5>
-                                            <p className="card-text">{newsItem.news}</p>
+                                            <p className="card-text">{newsItem.news.substring(0,100)}...</p>
                                             <p className="card-text"><small className="text-muted">
                                                 {`${newsItem.date.split("T")[0]} - ${newsItem.date.split("T")[1].split(".")[0]}`}
                                             </small></p>
